@@ -90,6 +90,7 @@ EXPECTED_RULE_TAGS = [
     'OS: Linux',
     'OS: macOS',
     'OS: Windows',
+    'Rule Type: BBR',
     'Resources: Investigation Guide',
     'Rule Type: Higher-Order Rule',
     'Rule Type: Machine Learning',
@@ -127,6 +128,8 @@ EXPECTED_RULE_TAGS = [
 
 MACHINE_LEARNING_PACKAGES = ['LMD', 'DGA', 'DED', 'ProblemChild', 'Beaconing']
 
+AlertSuppressionMissing = NewType('AlertSuppressionMissing', str,
+                                  validate=validate.OneOf(['suppress', 'doNotSuppress']))
 NonEmptyStr = NewType('NonEmptyStr', str, validate=validate.Length(min=1))
 TimeUnits = Literal['s', 'm', 'h']
 BranchVer = NewType('BranchVer', str, validate=validate.Regexp(BRANCH_PATTERN))
